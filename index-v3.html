@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ahmed Shaaban (EL-KASHIF) | Creative Writer &amp; Journalist</title>
+<link rel="icon" type="image/png" href="assets/KASHif logo-02.png"/>
+<link rel="apple-touch-icon" href="assets/KASHif logo-02.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Cairo:wght@300;400;600;700;800;900&amp;family=Amiri:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style-v3.css"/>
+<style>
+/* v4: Copywriter Scripts — dark + gold, matches style-v3 identity */
+.scripts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.script-card{position:relative;text-align:start;font-family:inherit;cursor:pointer;background:linear-gradient(180deg,var(--card-2),var(--bg-2));border:1px solid var(--line-soft);border-radius:14px;padding:1.6rem 1.4rem;color:var(--ink);box-shadow:var(--shadow-1);overflow:hidden;transition:transform .4s var(--ease-out),border-color .3s ease,box-shadow .4s ease;display:flex;flex-direction:column;gap:.6rem;min-block-size:190px}
+.script-card::before{content:"";position:absolute;inset-block-start:0;inset-inline:0;block-size:2px;background:linear-gradient(90deg,transparent,var(--gold-deep),transparent);opacity:.7}
+.script-card:hover{transform:translateY(-5px);border-color:rgba(233,193,118,.4);box-shadow:var(--shadow-2)}
+.script-card:hover::before{opacity:1}
+.script-card .script-num{font-family:var(--sans-latin);font-size:.8rem;letter-spacing:.1em;color:var(--gold);opacity:.75}
+.script-card h4{font-size:1.25rem;font-weight:800;color:var(--gold);line-height:1.9}
+.script-card .script-co{display:inline-flex;align-items:center;width:fit-content;background:rgba(233,193,118,.07);border:1px solid rgba(233,193,118,.22);color:var(--gold-soft);font-size:.8rem;font-weight:700;padding:.3rem .9rem;border-radius:999px}
+.script-card .script-type{color:var(--muted);font-size:.88rem;line-height:2}
+.script-card .script-open{margin-block-start:auto;color:var(--gold-pale);font-size:.85rem;font-weight:700}
+.scripts-note{color:var(--muted);font-size:1rem;margin-block-end:2rem;max-width:var(--measure)}
+.script-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1.25rem;background:rgba(5,4,3,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.script-overlay[hidden]{display:none}
+.script-modal{position:relative;width:min(56rem,100%);max-block-size:min(86vh,900px);display:flex;flex-direction:column;background:linear-gradient(180deg,var(--card-2),var(--bg-2));border:1px solid rgba(233,193,118,.35);border-radius:20px;box-shadow:var(--shadow-2);overflow:hidden}
+.script-modal::before{content:"";position:absolute;inset-block-start:0;inset-inline:0;block-size:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.script-modal-head{display:flex;align-items:flex-start;gap:1rem;padding:1.6rem 1.8rem 1.1rem;border-block-end:1px solid var(--line-soft)}
+.script-modal-head h3{font-size:1.5rem;font-weight:800;color:var(--gold)}
+.script-modal-head .script-modal-co{color:var(--gold-soft);font-size:.9rem;font-weight:700}
+.script-modal-close{margin-inline-start:auto;flex:none;background:rgba(233,193,118,.08);border:1px solid rgba(233,193,118,.35);color:var(--gold);border-radius:10px;inline-size:2.6rem;block-size:2.6rem;font-size:1.3rem;line-height:1;cursor:pointer}
+.script-modal-close:hover{background:rgba(233,193,118,.18)}
+.script-modal-body{padding:1.4rem 1.8rem 2rem;overflow-y:auto;line-height:2.1;font-size:1rem;color:var(--ink)}
+.script-modal-body p{margin:0 0 1rem;max-width:none}
+.script-modal-body .dir{color:var(--gold-pale);background:rgba(233,193,118,.06);border-inline-start:4px solid rgba(233,193,118,.4);border-radius:8px;padding:.8rem 1rem}
+@media (max-width:1024px){.scripts-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.scripts-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.script-card{transition:none}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<header class="site-header" data-menu="closed" id="site-header">
+<div class="wrap bar">
+<a class="brand" href="#home" aria-label="EL-KASHIF — الرئيسية">
+<span class="brand-mark"><img src="assets/KASHif logo-02.png" alt="EL-KASHIF Logo"/></span>
+<span class="brand-name" dir="ltr">EL-KASHIF</span>
+</a>
+<nav aria-label="التنقل الرئيسي">
+<ul class="nav-links" id="nav-links">
+<li><a href="#scripts">سكربتات الكوبي رايتير</a></li>
+<li><a href="#portfolio">أعمالي</a></li>
+<li><a href="#real-estate">العقارات</a></li>
+<li><a href="#tech">التقني</a></li>
+<li><a href="#seo">السيو</a></li>
+<li><a href="#creative-writing">كتابات</a></li>
+<li><a href="#about">عني</a></li>
+<li><a href="#contact">تواصل</a></li>
+</ul>
+</nav>
+<div style="display:flex;align-items:center;gap:0.8rem">
+<a href="mailto:ahmadshapan123123@gmail.com" class="header-cta">ابدأ مشروعك</a>
+<button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="فتح قائمة التنقل"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+</div>
+</div>
+</header>
+
+<main>
+<!-- Hero -->
+<section id="home" class="hero" aria-labelledby="hero-title">
+<div class="wrap">
+<div class="hero-eyebrow" data-hero="badge"><span class="tick" aria-hidden="true"></span><span class="rule" aria-hidden="true"></span></div>
+<h1 class="hero-title" id="hero-title">
+<span class="mask"><span class="line-inner">أحمد شعبان</span></span>
+<span class="mask"><span class="line-inner"><span class="gold-word">الكاشف</span></span></span>
+</h1>
+<div class="hero-sub" data-hero="sub">
+<span class="rule" aria-hidden="true"></span>
+<h2>كاتب محتوى</h2>
+</div>
+<div class="hero-grid">
+<p class="hero-lede" data-hero="lede">كاتب محتوى إبداعي وصحفي شغوف، بدأت مسيرتي من كواليس العمل الصحفي  مما منحني دقة البحث وصياغة القصة المؤثرة. تخصصت في صياغة المحتوى للسوق السعودي في قطاعات حيوية تشمل العقارات، السياحة، والمنصات التقنية.</p>
+<div class="hero-note" data-hero="note">
+<span class="material-symbols-outlined" aria-hidden="true">terminal</span>
+<p>ما يميزني هو شغفي التقني؛ حيث قمت بتطوير مهاراتي في بناء المواقع لفهم كيف تتفاعل محركات البحث وتجربة المستخدم مع الكلمة المكتوبة.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- v4: Copywriter Scripts (top, after hero) -->
+<section id="scripts" class="chapter" aria-labelledby="scripts-h">
+<div class="wrap">
+<div class="chapter-head" data-chapter>
+<span class="chapter-num" dir="ltr">00.</span>
+<h3 id="scripts-h">سكربتات الكوبي رايتير</h3>
+<span class="tail" aria-hidden="true"></span>
+</div>
+<p class="scripts-note">8 سكربتات إعلانية أصلية — اضغط على أي بطاقة لقراءة السكربت كاملاً.</p>
+<div class="scripts-grid">
+<button type="button" class="script-card" data-script="1" aria-haspopup="dialog"><span class="script-num" dir="ltr">01.</span><h4>الكل بيحتاجنا</h4><span class="script-co">سند — دراما اجتماعية</span><span class="script-type">سينمائي درامي متعدد المشاهد</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+<button type="button" class="script-card" data-script="2" aria-haspopup="dialog"><span class="script-num" dir="ltr">02.</span><h4>همّ الشهر</h4><span class="script-co">رونق — أغسطس 2026 (اليوم الوطني)</span><span class="script-type">سنيماتيك سينمائي</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+<button type="button" class="script-card" data-script="3" aria-haspopup="dialog"><span class="script-num" dir="ltr">03.</span><h4>اليوم الوطني بدون سند</h4><span class="script-co">حملة سند — جاهز لليوم الوطني؟</span><span class="script-type">سنيماتيك مقارن (قبل/بعد)</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+<button type="button" class="script-card" data-script="4" aria-haspopup="dialog"><span class="script-num" dir="ltr">04.</span><h4>جروب العيلة</h4><span class="script-co">حملة سند — جاهز لليوم الوطني؟</span><span class="script-type">سنيماتيك (محادثة واتساب)</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+<button type="button" class="script-card" data-script="5" aria-haspopup="dialog"><span class="script-num" dir="ltr">05.</span><h4>تاجر وأنت تقهوي</h4><span class="script-co">حملة سند — جاهز لليوم الوطني؟</span><span class="script-type">سنيماتيك (حوار بين جارتين)</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+<button type="button" class="script-card" data-script="6" aria-haspopup="dialog"><span class="script-num" dir="ltr">06.</span><h4>كأس العالم</h4><span class="script-co">رونق — كأس العالم 2026</span><span class="script-type">سنيماتيك (سكتش تلفزيوني)</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+<button type="button" class="script-card" data-script="7" aria-haspopup="dialog"><span class="script-num" dir="ltr">07.</span><h4>اليوم</h4><span class="script-co">رونق — 2026</span><span class="script-type">سنيماتيك (إيكو درامي)</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+<button type="button" class="script-card" data-script="8" aria-haspopup="dialog"><span class="script-num" dir="ltr">08.</span><h4>سند تحقق الأحلام</h4><span class="script-co">حملة سند — جاهز لليوم الوطني؟</span><span class="script-type">سنيماتيك (خيال/واقع)</span><span class="script-open">اقرأ السكربت كاملاً ←</span></button>
+</div>
+</div>
+</section>
+
+<div class="script-overlay" id="script-overlay" hidden>
+<div class="script-modal" role="dialog" aria-modal="true" aria-labelledby="script-modal-title" aria-describedby="script-modal-body">
+<div class="script-modal-head">
+<div><h3 id="script-modal-title"></h3><p class="script-modal-co" id="script-modal-co"></p></div>
+<button type="button" class="script-modal-close" id="script-modal-close" aria-label="إغلاق السكربت">×</button>
+</div>
+<div class="script-modal-body" id="script-modal-body" tabindex="0"></div>
+</div>
+</div>
+
+<template id="script-text-1">
+<p class="dir">[لقطة تأسيسية درون لشارع تجاري سعودي في النهار فيه محلات وابراج تجارية وأصوات زحام وسيارات، ومن ثم تقف أمام أحد العمائر فيها في توزيع الأدوار سوبرماركت في الدور الأرضي، صالة رياضية في الدور الثاني، مشغل أزياء في الدور الثالث، وعيادة طبية في الدور الرابع، الكاميرا درون تعرض الشارع ثم تعرض العمارة نفسها]</p>
+<p>(صوت vo في الخلفية)</p>
+<p>في أي شارع تجاري... تلقى عشرات المشاريع.</p>
+<p>تختلف الواجهات... لكن إذا فتحت الأبواب... بتلقى قصة مختلفة.</p>
+<p>والأغرب... إن مشاكلهم كلها مختلفة... لكن حلها كان واحد.</p>
+<p class="dir">[تتحرك الكاميرا من أمام العمارة بحركة Dolly In سريعة، لتدخل إلى مقهى في الطابق الأرضي. المكان أنيق، رائحة القهوة تملأ الأجواء، والباريستا يحضر كوب قهوة بإتقان. بجانب ماكينة الإسبريسو تقف أكياس بن سعودية ومنتجات المقهى مرتبة بعناية. ينظر صاحب المقهى إلى لابتوب يعرض صفحة إنشاء متجر إلكتروني مليئة بالإعدادات ورسائل الخطأ، ثم يغلقه بضيق]</p>
+<p>صاحب المقهى: قهوتي عليها طلب... والناس تسأل عن البن اللي نبيعه... لكن كل ما فكرت أبيع أونلاين، أحس الموضوع أكبر مني.</p>
+<p class="dir">[صاحب المقهى ينتقل وينظر للكاميرا مباشرة مع بداية الجملة الحوارية التالية]</p>
+<p>صوت سند (VO): لا تشيل الهم... خل التقنية علينا، وإنت ركز على قهوتك. نبني متجرك، ونجهزه للبيع من أول يوم.</p>
+<p class="dir">[تظهر على وجه صاحب المقهى ابتسامة ارتياح]</p>
+<p>صاحب المقهى: عن جد؟</p>
+<p class="dir">[لقطة مونتاج سريعة جداً (أقل من نصف ثانية): دمبل حديد يرتطم بالأرض بقوة، مع صوت معدني واضح]</p>
+<p class="dir">[Cut مباشر إلى داخل الصالة الرياضية، حيث الأجهزة حديثة ونظفة، والمدرب يقف يتأمل الصالة الهادئة بدون متدربين، يهز رأسه بإحباط.]</p>
+<p>صاحب الصالة: الصالة جاهزة... وكل شيء فيها على أعلى مستوى... بس المشتركين ما بيجوا.</p>
+<p>صوت سند (VO): الإعلان الصح... مو اللي يجيب مشاهدات أكثر، الإعلان الصح هو يجيب مشتركين أكثر.</p>
+<p class="dir">[تظهر على وجه المدرب ابتسامة وثقة وهو ينظر إلى الصالة.]</p>
+<p>صاحب الصالة: هذا اللي كنت أدور عليه.</p>
+<p class="dir">[لقطة مونتاج سريعة جداً: يد تمسك قطعة قماش فاخرة، ثم مقص يقصها بحركة حادة، مع صوت القص بشكل واضح]</p>
+<p class="dir">[Cut مباشر إلى مشغل الأزياء في الدور الثالث، بينما يستمر صوت المقص للحظة قصيرة قبل أن يختفي. تظهر مصممة الأزياء داخل مشغل أنيق، أمامها طاولة عمل عليها قطعة قماش كبيرة ومقص، وفي الخلفية مانيكان يعرض عباية فاخرة. تنتهي من تعديل قطعة الملابس، ثم تفتح اللابتوب وتبحث عن اسم متجرها في محرك البحث، فلا تجده. تتنهد وتنظر إلى الشاشة بإحباط]</p>
+<p>مصممة الأزياء: تعبي كله هنا... لكن اللي يدورني بقوقل، ما يلقاني.</p>
+<p class="dir">[ترفع نظرها من اللابتوب وتنظر مباشرة إلى الكاميرا]</p>
+<p>صوت سند (VO): إذا ما شافوك... ما راح يختاروك. وحنا نعرف كيف نخلي ظهورك قد إبداعك.</p>
+<p class="dir">[تبتسم المصممة وهي تغلق اللابتوب، ثم تعود لترتب العباية على المانيكان بثقة]</p>
+<p>مصممة الأزياء: الحين... أحس الناس بتوصل لي.</p>
+<p class="dir">[باب المصعد يغلق على الكادر ويقفل ومكتوب عليه 3 إشارة للدور مع صوت في الخلفية يعبر عن المشهد ومؤشر صاعد ومن ثم يتحول الرقم إلى 4 يفتح الباب وندخل مباشرة للعيادة]</p>
+<p class="dir">[يفتح باب المصعد على الدور الرابع. تدخل الكاميرا إلى مكتب طبي. الطبيب يرتدي بالطو أبيض، وسماعة الطبيب، وأمامه مجموعة أوراق وتقارير. يقلبها بضيق ثم يرمي القلم على المكتب ويتنهد.]</p>
+<p>الطبيب: أنا طبيب... مو مسوّق. وكل ساعة أقضيها بالإدارة... تنسرق من مرضاي أقدر أسوي الاثنين..</p>
+<p class="dir">[يرفع الطبيب نظره من المكتب وينظر مباشرة إلى الكاميرا.]</p>
+<p>صوت سند (VO): ولا المفروض تسويهم. أنت عالج مرضاك... وحنا نتكفل نوصلهم لك.</p>
+<p class="dir">[يبتسم الطبيب براحة ويتنهد.]</p>
+<p>الطبيب: الحين برتاح.</p>
+<p class="dir">[مونتاج سريع جدًا (2-3 ثوانٍ) للمشاهد ال4 ما يدل على نجاح هدف كل صاحب بيزنس]</p>
+<p class="dir">[Cut إلى لقطة خارجية لنفس العمارة التي بدأ بها الإعلان، لكن هذه المرة تبدو مضيئة أكثر.]</p>
+<p>صوت المعلّق (VO): اختلفت مشاريعهم... واختلفت تحدياتهم... لكن الشيء اللي جمعهم... إن كل واحد ركز على شغله... وسند اهتمت بالباقي.</p>
+
+</template>
+
+<template id="script-text-2">
+<p>(1) همّ الشهر</p>
+<p class="dir">- [مشهد سينمائي: إضاءة دافئة داخل المنزل، الزوج جالس يقلب جواله بتركيز، وصوت الزوجة (VO) بنبرة حانية ومحملة بالمسؤولية: لقطة قريبة (Close-up) على ملامح القلق والترقب]</p>
+<p>يا أبو خالد.. لا تنسى التزاماتنا هالشهر! مصاريف البيت زادت، واليوم الوطني على الأبواب، والزحمة تعطلنا وتطير ميزانيتنا قبل لا نبدأ.. الراتب يطير بأول أسبوع، والالتزامات ما تخلص، ما أدري وش بنسوي هالشهر؟</p>
+<p class="dir">- [يتلاشى صوت الزوجة بعد ما تقول اليوم الوطني وتتحول لغمغمة ضاغطة، الكاميرا تقترب (Zoom In) من وجهه وهو يتصفح يظهر أمامه إعلان رونق، تتغير ملامحه تدريجياً من الحيرة إلى التركيز، يرفع رأسه بثقة]</p>
+<p>أبشري بالخير يا أم خالد.. فكرة المتجر اللي كنت أخطط لها.. رونق راح يصيرون شريكنا فيها! نطرحها ونستبق زحمة الإعلانات، ونجهز مشروعنا يستقبل الموسم بقوة ومبيعات تبيّض الخاطر.</p>
+<p class="dir">- [مشهد انتقالي سريع: لقطات سينمائية احترافية لشاشة متجر إلكتروني يتم برمجته بدقة، بيانات إعلانية تتصاعد، وشعار رونق يظهر بوضوح مع إضاءة ذهبية دافئة تعكس الأصالة والاحترافية]</p>
+<p class="dir">- [صوت المعلق (VO) بنبرة واثقة ومطمئنة: موسيقى تصويرية ملهمة تبدأ بالارتفاع تدريجياً]</p>
+<p>لا تخلي موسم اليوم الوطني يمرّك وأنت للحين تفكر. في رونق، فاهمين السوق والتجارة الإلكترونية، ونساعدك تبدأ وتترك أثر.</p>
+<p class="dir">- [مشهد ختامي: الزوج يلتفت لزوجته(الكاميرا)]</p>
+<p>يا أم خالد بدينا مع رونق، واليوم الوطني هالسنة بيكون غير.</p>
+<p class="dir">- [ترد الزوجة (VO) بنبرة مطمئنة]</p>
+<p>فعلاً، الحين بس ارتحت.. لا نشيل هم الالتزامات من اليوم.</p>
+<p class="dir">- [صوت المعلق (VO)]</p>
+<p>لا تنتظر اللحظة الأخيرة.. تواصل مع رونق اليوم، واطلب استشارتك، وابدأ.</p>
+</template>
+
+<template id="script-text-3">
+<p>(1) اليوم الوطني بدون سند</p>
+<p>المشهد الأول: بدون سند — "الانتظار"</p>
+<p>الديكور: مكتب بسيط واحد، كرسي، موبايل، فنجان قهوة. خلفية محايدة (حائط فاضي أو ستارة بسيطة). لا نحتاج أي عناصر إضافية.</p>
+<p class="dir">[مشهد: Wide Shot - إضاءة صباحية هادئة، الموديل يقف بجوار مكتبه، يمسك فنجان القهوة وينظر للموبايل الموضوع أمامه بترقب]</p>
+<p>الموديل (لنفسه، بنبرة متحمسة):</p>
+<p>اليوم الوطني.. يلا يا رزق الله، اليوم بس بيوم الطلبات!</p>
+<p class="dir">[Zoom In] يجلس على كرسيه ويرتشف القهوة، يمسك الموبايل بحماس، يفتح الشاشة.. يبص.. مفيش إشعارات. تتجمد ابتسامته شوية، أصابعه تبدأ تطبل على المكتب بإيقاع سريع بدون وعي منه</p>
+<p>الموديل:</p>
+<p>(يهز كتفيه) طبيعي.. بدري عليهم لسه.</p>
+<p class="dir">[ترانزشن تقديم الوقت مع حركة عقارب الساعة]</p>
+<p class="dir">[تلف الساعة: 12:00 ظهراً]</p>
+<p class="dir">[Medium Shot] نفس الوضعية بالظبط، بس ملامحه أقل حماس. أصابعه لسه بتطبل على المكتب بس أبطأ شوية، يمد يده للموبايل ببطء، يفتحه.. يبص بعين واحدة نص مغمضة وكأنه خايف يتأكد</p>
+<p class="dir">[مفيش حاجة. يقفل الشاشة بزهق واضح، يحطه جنبه وابتسامته بتبهت، ياخد نفس عميق ويحاول يبتلعه]</p>
+<p>الموديل:</p>
+<p>(يتنهد) خلاص.. أكيد بعد الصلاة يصحوا الناس ويطلبوا.</p>
+<p class="dir">[ترانزشن تقديم الوقت مع حركة عقارب الساعة]</p>
+<p class="dir">[تلف الساعة: 4:00 عصراً]</p>
+<p class="dir">[الكاميرا أقرب شوية - يبان عليه الملل، بيلف القلم بين أصابعه بعصبية وبيوقعه من إيده من كتر التوتر، يلقطه بسرعة ويبص حواليه وكأنه يتأكد محدش شافه. يبص للموبايل من طرف عينه من غير ما يمسكه. بعد ثانيتين ما يقاومش، يمسكه بسرعة]</p>
+<p class="dir">[الشاشة فاضية]</p>
+<p>الموديل:</p>
+<p>(بصوت أضعف، يبلع ريقه) عادي.. وقت العصرية بيصير فيها ركود، هذا طبيعي.</p>
+<p class="dir">[يحطه مقلوب على وشه على المكتب هذه المرة، وكأنه مش عاوز يشوفه تاني، ركبته بتهتز تحت المكتب من غير ما يحس]</p>
+<p class="dir">[ترانزشن تقديم الوقت مع حركة عقارب الساعة]</p>
+<p class="dir">[تلف الساعة: 8:00 مساءً]</p>
+<p class="dir">[Wide Shot] رأسه بدأ يميل، عينيه بتتقفل من التعب، بس إيده لسه على الموبايل المقلوب زي ما يكون مربوطة بيه، مش قادر يبعدها عنه حتى وهو نايم</p>
+<p class="dir">[رأسه ينزل تدريجياً على المكتب.. ينام]</p>
+<p class="dir">[ترانزشن تقديم الوقت مع حركة عقارب الساعة]</p>
+<p class="dir">[تلف الساعة بسرعة: 11:00 ليلاً — إضاءة الغرفة تخفت أكتر، جو ليلي هادئ]</p>
+<p class="dir">[صوت إشعار واتساب يدوي فجأة. الموديل يفزع من نومه بحركة مفاجئة، قلبه شكله واقع من الفزعة، يمسك الموبايل بسرعة وإيده شبه مرتجفة من الحماس]</p>
+<p>الموديل:</p>
+<p>(بصوت متحمس، نفَسه شبه لاهث) يا الله.. جاني طلب!!</p>
+<p class="dir">[يفتح الشاشة بسرعة.. وجهه يتحول فجأة من الفرح للصدمة/الزهق وهو بيقرا]</p>
+<p class="dir">[يظهر على الشاشة رسالة واتساب من "أمي ❤️"]</p>
+<p>الموديل:</p>
+<p>(ينبغي، ينقل نظره للكاميرا كأنه يشتكيلها) "لا تنسى تجيب خبز وانت جاي (يفضل تتقال فويس اوفر من صوت بنت في الخلفية)".. يا ربي، أمي!</p>
+<p class="dir">[يرمي الموبايل على المكتب بحركة انفعالية خفيفة (كوميدية مش عنيفة)، يحط دماغه في إيديه ويفرك عينيه بتعب]</p>
+<p class="dir">[الساعة تكبر في الشاشة: 11:00 PM، بجانبها الشاشة تسود تمهيداً للانتقال]</p>
+<p>المشهد الثاني: مع سند — "الزحمة" (نسخة معدّلة)</p>
+<p>الديكور: نفس المكتب بالظبط. نفس الإضاءة الصباحية.</p>
+<p class="dir">[مشهد: Wide Shot - نفس زاوية الكاميرا الأولى. الموديل واقف بجوار مكتبه ماسك فنجان القهوة، لسه واقف ما قعدش على الكرسي]</p>
+<p class="dir">[الساعة: 8:00 صباحاً]</p>
+<p>الموديل (لنفسه، بنبرة واثقة ومبسوطة):</p>
+<p>اليوم الوطني.. يلا يا رزق الله!</p>
+<p class="dir">[وهو لسه واقف، الموبايل يرن فجأة على المكتب. يبص له بحاجب مرفوع وابتسامة مندهشة، يمسكه بسرعة ويرد وهو واقف]</p>
+<p>الموديل:</p>
+<p>(بابتسامة) هه؟ بهذه السرعة؟ يا سلام!</p>
+<p class="dir">[يقعد على الكرسي وهو لسه ماسك الموبايل، يرتشف من قهوته بإيده التانية]</p>
+<p class="dir">[ترانزشن تقديم الوقت مع حركة عقارب الساعة]</p>
+<p class="dir">[تلف الساعة: 2:00 ظهراً]</p>
+<p class="dir">[Medium Shot - الموبايل يرن. يرد عليه بسرعة وهو مبسوط]</p>
+<p class="dir">[بمجرد ما يقفل، يرن تاني فورا رنات متتابعة. يبتسم بتعب خفيف]</p>
+<p>الموديل:</p>
+<p>(بضحكة) طيب طيب.. الحين بخليك صامت!</p>
+<p class="dir">[يمسك الموبايل ويضغط زر الصامت بثقة]</p>
+<p class="dir">[بمجرد ما يحطه على المكتب.. صوت اهتزاز إشعار جديد — Zoom In سريع وخفيف على الموبايل مع كل اهتزاز]</p>
+<p class="dir">[اهتزاز تاني — Zoom In أقرب شوية]</p>
+<p class="dir">[اهتزاز تالت متتابع بسرعة أكبر — Zoom In نهائي قريب جداً على الشاشة وهي مليانة إشعارات فوق بعض]</p>
+<p class="dir">[الموديل يبص للكاميرا بابتسامة استسلام مضحكة، يرفع كتافه]</p>
+<p>الموديل:</p>
+<p>(بضحكة) طيب يا جماعة.. واحد واحد بس!</p>
+<p class="dir">[إنسرت للموبايل موضوع على المكتب وهو مفتوح ويظهر إشعارات طلبات من المتجر مع ظهور اللوجو]</p>
+<p>المعلق (VO):</p>
+<p>مع سند.. كل إشعار طلب جديد، وكل رنة خطوة أقرب لنجاحك. إحنا نشتغل ورا الكواليس.. وانت بس استمتع بموسمك.</p>
+<p>مشهد الختام — "بدون سند" بعد الشارة</p>
+<p class="dir">[مشهد: Medium Shot - نفس ديكور المشهد الأول، إضاءة ليلية خافتة. الموديل قاعد، الموبايل مقلوب قدامه على المكتب زي ما سابه]</p>
+<p class="dir">[يبص للموبايل بحاجب مرفوع وعين ثانية نص مغمضة، وكأنه بيتحداه]</p>
+<p class="dir">[يمد إصبعه ببطء ويزق الموبايل زقة خفيفة، وكأنه بيحاول "يشغّله" أو يصحّيه]</p>
+<p class="dir">[يستنى ثانية.. يبص للشاشة.. لسه ساكت. يزقه زقة تانية أقوى شوية، الموبايل يتحرك سنتيمترين على المكتب]</p>
+<p class="dir">[يقرب وشه منه أكتر، يهمس له بجدية مصطنعة مضحكة]</p>
+<p>الموديل:</p>
+<p>(هامساً) يلا.. رن. رن بس مرة واحدة.</p>
+<p class="dir">[يستنى.. مفيش صوت. يزقه زقة أخيرة أقوى فيخليه يتقلب على ضهره على المكتب]</p>
+<p class="dir">[فيد اوت fade out بطيء]</p>
+</template>
+
+<template id="script-text-4">
+<p>(2) جروب العيلة</p>
+<p>المشهد: داخل شاشة الواتساب</p>
+<p class="dir">[فتح المشهد: واجهة الواتساب، اسم الجروب "جروب العيلة"]</p>
+<p>العم فهد (صوت رجل كبير):</p>
+<p>يا شباب عساكم بخير؟ اليوم الوطني كيف مر على تجارتكم؟ 🌟</p>
+<p class="dir">[استيكر: علم السعودية يلوح الاستيكر يظهر كبير ومن ثم يصغر ويوضع في مكانه]</p>
+<p>سعود (صوت شاب):</p>
+<p>تجارة الملابس عندي.. بصراحة خيّست يا عمي 😅</p>
+<p class="dir">[استيكر: وجه مبتسم بإحراج مع قطرة عرق]</p>
+<p>فيصل (صوت شاب تاني، فيه لمحة استفزاز خفيفة):</p>
+<p>هه؟ خيّست؟ إنت من زمان كذا يا سعود، معدات الرياضة عندي، جبت أحسن منك بمراحل 💪</p>
+<p class="dir">[استيكر: عضلة مرفوعة 💪]</p>
+<p>سعود (بحدة خفيفة مضحكة):</p>
+<p>أحسن مني؟ طيب وريني رقم مبيعاتك بس لو تقدر 😏</p>
+<p>بندر (صوت شاب تالت، بيقاطع فجأة):</p>
+<p>يا عيال أنا العطور عندي أسوأ من الاثنين.. الميزانية طارت في يومين واللي جاني مبيعات تافهة!</p>
+<p class="dir">[استيكر: شخص حاطط إيده على وشه]</p>
+<p>العم (بحزم أبوي فيه هدوء):</p>
+<p>يا شباب لا تتهاوشون الحين.. كل واحد عنده ظروفه. خلونا نشوف وش الحل بدل ما نتقارن 🙏</p>
+<p class="dir">[Typing indicator... سلطان بيكتب]</p>
+<p>سلطان (صوت شاب واثق، فخر هادئ):</p>
+<p>يا جماعة اهدوا شوي.. أقول لكم، بصراحة اشتغلت مع سند هالموسم على متجر الساعات.. والحمدلله الموسم كان من أقوى المواسم 🙏</p>
+<p class="dir">[استيكر: لابس نظارة بثقة]</p>
+<p class="dir">[يرسل صورة نتائج متجر الساعات الخاص به]</p>
+<p class="dir">[فيصل وسعود يردوا فوق بعض بسرعة، فقاعات متتالية]</p>
+<p>فيصل:</p>
+<p>سلطان! ليش ما قلت من الأول بدل ما تفرجنا نتهاوش؟ 😂</p>
+<p>سعود:</p>
+<p>أرسل لي رقمهم بسرعة يا سلطان.. أنا أحوج لهم أكتر من فيصل 😤</p>
+<p>فيصل (رد فوري):</p>
+<p>لا أنا أولى، إنت دايم خايس ودايم تشكي! 😂</p>
+<p>العم (بضحكة ودية تقفل الموضوع):</p>
+<p>كفى مهاترة! سلطان أرسل الرقم هنا للكل، وخلاص 😄</p>
+<p>سلطان:</p>
+<p>تمام يا عمي.. بعته للجميع 👇</p>
+<p class="dir">[استيكر ختامي: شعار سند يظهر وسط تصميم الشات، مع رقم التواصل وانيميشن بسيط للشعار]</p>
+</template>
+
+<template id="script-text-5">
+<p>(3) تاجر وأنت تقهوي!</p>
+<p class="dir">[المشهد: مجلس دافئ، جارتان قاعدات ومعهن فنجال قهوة]</p>
+<p class="dir">[أم فهد تتمطى بتعب وتتنهد]</p>
+<p>يا كثر تعب المحل! من الصبح وأنا واقفة على رجليني.. فواتير وزباين وطلبات ما تخلص.</p>
+<p class="dir">[تلتفت لأم سارة وتشوفها مستغرقة تماماً بجوالها وتبتسم مع كل إشعار]</p>
+<p>وأنتِ يا أم سارة.. لا عندك محل ولا شقى زباين، وطول الجلسة عينك بهالجوال ومروقة!</p>
+<p class="dir">[أم سارة مش دارة باللي بيحصل ولا سمعت كلام أم فهد، أم فهد لوّحت بيدها قدام وجهها تنبهها]</p>
+<p>وش السالفة؟</p>
+<p class="dir">[أم سارة تبتسم بثقة وتعدل جلستها]</p>
+<p>معك أم فهد.. السالفة وما فيها يا أم فهد.. [تشير للموبايل في يدها] هذا متجري الإلكتروني، الخير يجي لين عندي وأنا أتقهوى معك! الحين وأنا قاعدة جاني إشعار وبعت بألف ريال.</p>
+<p class="dir">[أم فهد تنصدم وتفتح عيونها باستغراب]</p>
+<p>ألف ريال بدون محل ولا وقفة رجل؟ شلون؟!</p>
+<p>لكن ما باقدر أكون مثلك، أنتِ خابرة إني أخاف من هالتقنية وتعقيدها!</p>
+<p class="dir">[أم سارة بنبرة مطمئنة ودافئة]</p>
+<p>لا معقد ولا هم يحزنون.. منصة سند ضبطت لي كل شيء من الألف للياء! من تصميم المتجر لربط بوابات الدفع والشحن، وما تعبت بشيء</p>
+<p class="dir">[أم فهد بتصميم وحماس]</p>
+<p>صدق؟ هذي اللي تريح البال وتوسع التجارة! أجل بفتح متجري معهم الحين.</p>
+<p class="dir">[أم سارة تبتسم وتوجه كلامها للمشاهدين]</p>
+<p>لا تخلي تجارتك توقف على باب محلك.. انقلي تجارتك اليوم مع منصة سند وريحي بالك!</p>
+</template>
+
+<template id="script-text-6">
+<p>المشهد (سكتش):</p>
+<p>شاشة تلفاز وصوت خارج من الشاشة:</p>
+<p>"جبل طويق هذا والسعودي هذا والأخضر يعدل" (من مباراة السعودية والأرجنتين في كأس العالم 2022).</p>
+<p>المتحدث أمام الشاشة يصيح:</p>
+<p>"حنا الخضر! حنا الخضر!!"</p>
+<p>الحوار:</p>
+<p>"يا عيال.. السعودية في المونديال.</p>
+<p>مرة ثانية راح نكتب التاريخ ونصعبها على خصومنا.</p>
+<p>لا يهمنا ميسي أو رونالدو، حنا الخضر.</p>
+<p>سعودية الدوسري وسعود.. يا ويلهم منا!"</p>
+<p>(صوت معلق VO):</p>
+<p>"مع اقتراب المونديال.. رونق ما تتركك.</p>
+<p>رونق معك يا السعودية.. راح نصل بعيد ونجاري الكبار."</p>
+</template>
+
+<template id="script-text-7">
+<p>(إضافة إيكو على لفظ الموديل لكلمة اليوم، الفكرة في تكرارها لدفع المشاهد ياخد القرار)</p>
+<p>(العميل يدخل ويخرج من أمام الكاميرا مرددا كلمة اليوم بأشكال درامية مختلفة)</p>
+<p>اليوم ما عاد الزبون يجيك.. اليوم أنت بتروح له ولكن بدون مواصلات أو تعب..</p>
+<p>اليوم بتروحله وين ما هو موجود.. في الجوال.. في البحث.. في السوشيال.. في كل مكان بتطلعله..</p>
+<p>اليوم تقدر تكسب سوق كامل وأنت جالس على كرسيك زيي..</p>
+<p>اليوم في رونق بنساعدك نبني حضورك الرقمي في السوق السعودي.</p>
+<p>لا تخلي السوق يسبقك.. تواصل معنا (سكتة ويبتسم) اليوم.</p>
+</template>
+
+<template id="script-text-8">
+<p>(4) سند تحقق الأحلام!</p>
+<p class="dir">[المشهد: شاب جالس في بيته، ممسك بقلم ودفتر مكتوب على غلافه بخط اليد "دفتر الأفكار". يرسم شعاراً بسيطاً بتركيز، ثم يتوقف، يتأمل الرسمة وبقية صفحات الدفتر المليئة بالأفكار، يتنهد بحسرة عميقة.]</p>
+<p>الشاب (يحدث نفسه بهم): يا كثر الأفكار بهالدفتر.. كلها أحلام واقفة مكانها! (يمرر يده على الصفحات) كل ما أقول ببدا، ألقى نفسي ضايع.. أحسها يبغالها خبرة كبيرة وأنا مو عارف من وين أبدأ ولا كيف أحقق أحلامي.</p>
+<p class="dir">[صوت الفويس أوفر (دافئ ومطمئن، يدخل فجأة كأنه يكمل فكرته)]: وليه تخليها واقفة؟</p>
+<p class="dir">[الشاب ينفزع ويلتفت حوله بحيرة]: بسم الله! مين أنت؟</p>
+<p class="dir">[الفويس أوفر يبتسم بنبرة واثقة]: مو مهم مين أنا.. المهم إن حلمك راح يتحقق الحين.</p>
+<p class="dir">[الشاب يطالع دفتره باستغراب]: كيف يتحقق وهي مجرد رسمة على ورق؟</p>
+<p class="dir">[الفويس أوفر بثقة ومودة]: بكل بساطة.. أنت عليك الفكرة، وإحنا علينا التنفيذ. وريني الرسمة اللي بيدك!</p>
+<p class="dir">[الشاب يبتسم بأمل ويوجه الدفتر نحو الكاميرا]</p>
+<p class="dir">[تحول بصري سينمائي مبهر: الرسمة اليدوية تتحول فوراً إلى شعار احترافي تعرض جرافيك، ثم يعطيه موبايل يعرض الشعار ومن ثم متجر إلكتروني متكامل يُعرض على الشاشة في canvas]</p>
+<p class="dir">[الفويس أوفر يقول بثقة]: في سند.. فكرتك ما تبقى حبر على ورق! نحولها لواقع، نصمم لك كل شيء ونمشي معك خطوة بخطوة.</p>
+<p class="dir">[الشاب ينظر لشاشة جواله بفرحة واعتزاز]: أخيراً صارت حقيقة!</p>
+<p class="dir">[الفويس أوفر]: أفكارك تستاهل تشوف النور.. لا تخليها حبيسة الدفاتر! مع سند، حلمك صار أقرب. تواصل معنا اليوم، وخلنا نوصلك للي تتمناه!</p>
+</template>
+
+<!-- 01 -->
+<section id="portfolio" class="chapter" aria-labelledby="portfolio-h">
+<div class="wrap">
+<div class="chapter-head" data-chapter>
+<span class="chapter-num" dir="ltr">01.</span>
+<h3 id="portfolio-h">صناعة القصة والهوية</h3>
+<span class="tail" aria-hidden="true"></span>
+</div>
+<div class="work-grid">
+<article class="work-card" data-wipe>
+<a href="https://assafiyyah.com/" target="_blank">
+<div class="work-media">
+<img src="assets/assafiyyah.png" data-alt="Traditional Saudi cultural architecture with modern lighting" alt="Traditional Saudi cultural architecture with modern lighting"/>
+<div class="work-kind">وثائقي</div>
+</div>
+<div class="work-body">
+<h4>متحف الصافية</h4>
+<p>صياغة المحتوى التعريفي والوثائقي للمتحف بأسلوب يجمع بين الهوية التاريخية والرؤية العصرية للسياحة السعودية.</p>
+<div class="tag-row"><span class="tag">سرد إبداعي وثائقي</span><span class="tag">إرث ثقافي</span></div>
+</div>
+</a>
+</article>
+<article class="work-card" data-wipe>
+<a href="https://www.fundicum.com/" target="_blank">
+<div class="work-media">
+<img src="assets/fundicum.png" data-alt="Luxury hotel lobby with elegant design" alt="Luxury hotel lobby with elegant design"/>
+<div class="work-kind">سياحة</div>
+</div>
+<div class="work-body">
+<h4>فنديكوم</h4>
+<p>كتابة المحتوى البيعي لمنصة حجز الفنادق، مع التركيز على تحويل مجرد وصف الغرف إلى تجربة سياحية ملهمة.</p>
+<div class="tag-row"><span class="tag">استراتيجية المحتوى السياحي</span><span class="tag">كتابة بيعية مقنعة</span></div>
+</div>
+</a>
+</article>
+</div>
+</div>
+</section>
+
+<!-- 04 -->
+<section id="seo" class="chapter" aria-labelledby="seo-h">
+<div class="wrap">
+<div class="chapter-head" data-chapter>
+<span class="chapter-num" dir="ltr">04.</span>
+<h3 id="seo-h">نماذج من تصدر النتائج</h3>
+<span class="tail" aria-hidden="true"></span>
+</div>
+<div class="seo-grid">
+<div class="seo-card" data-seo>
+<a href="https://elmemar.com/" target="_blank">
+<h4>المعمار</h4>
+<p>صياغة محتوى تعليمي وتسويقي لخدمات الصيانة المنزلية (كشف تسربات المياه) بأسلوب يحل مشاكل العميل ويزيد الثقة.</p>
+</a>
+</div>
+<div class="seo-card" data-seo>
+<a href="https://gama-est.com/" target="_blank">
+<h4>جاما</h4>
+<p>محتوى متخصص في مكافحة الحشرات والخدمات المنزلية موجه للجمهور السعودي بأسلوب مهني ومقنع.</p>
+</a>
+</div>
+<div class="seo-card" data-seo>
+<a href="https://baladytex.com/" target="_blank">
+<h4>بلدي</h4>
+<p>كتابة محتوى متخصص في مجال المفروشات يستهدف الجمهور المصري، مع التركيز على الكلمات المفتاحية الرائجة.</p>
+</a>
+</div>
+<div class="seo-card" data-seo>
+<a href="https://jwhartmakh.com/" target="_blank">
+<h4>جوهرة مكة</h4>
+<p>الشركة الأولى في نتائج البحث في نقل العفش بمكة وجدة، مع محتوى متخصص يستهدف العملاء الباحثين عن خدمات النقل الموثوقة.</p>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 02 -->
+<section id="real-estate" class="chapter" aria-labelledby="re-h">
+<div class="wrap chapter--band" data-band>
+<div class="chapter-head" data-chapter>
+<span class="chapter-num" dir="ltr">02.</span>
+<h3 id="re-h">خبرة بالمحتوى العقاري</h3>
+<span class="tail" aria-hidden="true"></span>
+</div>
+<div class="re-grid">
+<div data-rise>
+<h4>راي هوم / القلاع / نوفا أركان</h4>
+<p class="lede">كتابة المحتوى التسويقي لمشاريع عقارية كبرى، مع استخدام لغة عربية رصينة وجذابة تضمن وصول الرسالة بوضوح وبناء علاقة قوية مع العميل.</p>
+<ul class="check-list">
+<li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span><span>لغة عربية احترافية</span></li>
+<li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span><span>هوية لفظية عقارية</span></li>
+<li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span><span>استراتيجية الإقناع</span></li>
+</ul>
+</div>
+<div class="re-shots" data-shots>
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTQS4ckxspAZX7TvoDASo0vBAuDLh4H0p3Mfk7-eLfaYMvLC7paCT_sL-3goQbQaku4co5mtfhBtQmxZerq0SwvuapzVoE4LcOTHx5e7RbFaNJWq6ARkpG5l_EWHZSUo8goyhYYKehXFF1NUET0Gi8yL_p9faS0OedgRq9WXLBkcgS7UMtEch-yX7BhaDupJJAhzIrSvJnfyKDkvA3D8aT-yR5im_H8WC8_6sboHbQo-QVKiTGu4MSnA093tyxX3DqESXyuA2u9kg" data-alt="Modern luxury villa architectural rendering" alt="Modern luxury villa architectural rendering"/>
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpUWFkkxEZYxMC14qTk0dVQwiUEWJszyZ3nZll_Z3ujF-FemE1iTEXrDxc_b_zEyp29leAfcpQ7aK1XQqKGXHn9GJ-1VQV7cFB-KQAEhYhvWvS337fwiwjecKP_0l3Xw4oH4Rqv1OyjF1EvMmKr77LiE1t8ZDEOZ-VTBgxmViR71kFYABzHdQQYMOCrZM1PQ_0FKX8XdW_VakXoEJPrh8wVkCfi3_vCw2M4BIOxyN7q9sNuRJeTmMPyptfrHwfuneRaLWz-MqNue4" data-alt="Corporate real estate skyscraper reflection" alt="Corporate real estate skyscraper reflection"/>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 03 -->
+<section id="tech" class="chapter" aria-labelledby="tech-h">
+<div class="wrap">
+<div class="chapter-head" data-chapter>
+<span class="chapter-num" dir="ltr">03.</span>
+<h3 id="tech-h">هندسة المحتوى الرقمي</h3>
+<span class="tail" aria-hidden="true"></span>
+</div>
+<div class="tech-grid">
+<div class="tech-card" data-scale>
+<a href="https://www.nawan.co/" target="_blank">
+<div class="tech-ghost" aria-hidden="true"><span class="material-symbols-outlined" aria-hidden="true">code</span></div>
+<h4>مشروع ناوان</h4>
+<p>هندسة محتوى تجربة المستخدم لموقع العمل الحر، وتبسيط اللغة التقنية لتكون واضحة ومباشرة لجميع المستخدمين.</p>
+<div class="pill-row"><span class="pill">هندسة المحتوى (UX)</span><span class="pill">تبسيط المفاهيم</span></div>
+</a>
+</div>
+<div class="tech-card" data-scale>
+<a href="https://eventa.com.sa/" target="_blank">
+<div class="tech-ghost" aria-hidden="true"><span class="material-symbols-outlined" aria-hidden="true">event</span></div>
+<h4>إيفينتا</h4>
+<p>كتابة محتوى متخصص لتصنيع الفعاليات والمؤتمرات الدولية الكبرى، بأسلوب يعكس الاحترافية والبروتوكول الإعلامي.</p>
+<div class="pill-row"><span class="pill">إدارة المحتوى الإعلامي</span><span class="pill">تنظيم الفعاليات</span></div>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Creative writing -->
+<section id="creative-writing" class="chapter" aria-labelledby="cw-h">
+<div class="wrap">
+<div class="creative-head" data-rise>
+<h2 id="cw-h">كتابات إبداعية</h2>
+<p>رحلة في عوالم الأدب والخيال، حيث تلتقي الكلمات لتصنع عوامل جديدة</p>
+</div>
+<div class="book-grid">
+<div class="book-card" data-book>
+<h3>لعنة المختلس</h3>
+<p>فارس وعزة، حبٌ وُلد بين أزقة الحي وكبر مع الأيام. حين تتشابك المصائر مع فهد وهاجر، تتحول القصة إلى مرآة لصراعات الطبقية والفساد والظلم. هل يصمد الحب أمام كل شيء؟</p>
+<div class="book-meta"><p>رواية تاريخية • دراما مصير</p></div>
+</div>
+<div class="book-card" data-book>
+<h3>رقي</h3>
+<p>عمرو يبحث عن الحقيقة في عالم غارق في الشك. حين يتقابل مع فارس المتدين وفهد الشرير، تتصارع الأفكار وتتشابك المصائر. رحلة عميقة عن الإيمان والإلحاد، الفقد والأمل، ومعنى الحياة نفسها.</p>
+<blockquote><p>"الرقي ليس ارتفاعاً، بل سمواً في عوالم لا تراها العيون"</p></blockquote>
+<div class="book-meta"><p>رواية فلسفية • تأملات وجودية</p></div>
+</div>
+<div class="book-card" data-book>
+<h3>عروبة</h3>
+<p>ثلاثة عرب من ثلاث دول، التقوا في أرض المحتل. محمد المصري، الأديب السوري، فهد الفلسطيني — كلٌ يحمل قصة، لكنهم يجمعهم شيء واحد: الأرض هي الهوية. من القدس إلى دمشق، من القاهرة إلى مخيمات اللاجئين، رواية عن الانتماء والفقد.</p>
+<div class="book-meta"><p>رومانسي • قصة عابرة للقارات</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About -->
+<section id="about" class="chapter" aria-labelledby="about-h">
+<div class="wrap">
+<div class="about-grid">
+<div class="about-photo" data-photo>
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGh6TUZISImskeIvKaI0HyAZaZwAITpBOY_P2C3qdY0eDTDJoE36ATWabNyIUHoAgTZlFFWxVUo-VM0CQQNUJ0zUnro6Zl2_pozI7O07zE-waNXjSmy5Nvz6or54sBd7SndYymywgyd3stUUd_UQ4Cu8rOuVldbfBx3tv0Je1hA6Be9vSNCgNiNgSy2NO0F39SH1syUikSID8QSd0e2PLH63wc3iCvAg8g_rHDO6PtLxkIkDza3oAEFTIAJM-cVpmuRiZROmhM-zc" data-alt="Minimalist workspace with laptop and notebook" alt="Minimalist workspace with laptop and notebook"/>
+</div>
+<div class="about-card" data-rise>
+<h3 id="about-h">لماذا أنا؟ الرؤية التقنية خلف القلم</h3>
+<h4>الكود + الكلمة</h4>
+<p class="lede">بجانب مهاراتي في الكتابة، أمتلك خبرة في بناء المواقع. هذا يمنحني ميزة فريدة في فهم كيف يقرأ المتصفح محتواك وكيف يتحرك المستخدم داخل موقعك.</p>
+<div class="skill-row"><span class="skill-ic"><span class="material-symbols-outlined" aria-hidden="true">search</span></span><strong><bdi dir="ltr">SEO focus</bdi></strong></div>
+<div class="skill-row"><span class="skill-ic"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span></span><strong><bdi dir="ltr">UX Writing</bdi></strong></div>
+<div class="skill-row"><span class="skill-ic"><span class="material-symbols-outlined" aria-hidden="true">hub</span></span><strong><bdi dir="ltr">Tech coordination</bdi></strong></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="chapter" aria-labelledby="contact-h">
+<div class="wrap">
+<div class="contact-band" data-contact>
+<div class="ghost" aria-hidden="true"><span class="material-symbols-outlined" aria-hidden="true">mail</span></div>
+<h2 id="contact-h">لنتواصل.</h2>
+<a class="contact-mail" href="mailto:ahmadshapan123123@gmail.com"><bdi dir="ltr">ahmadshapan123123@gmail.com</bdi></a>
+<div class="contact-links">
+<a href="https://linkedin.com/in/ahmadshapan" target="_blank">لينكدإن</a>
+<a href="https://ahmadshapan123123-stack.github.io/CV/" target="_blank">السيرة الذاتية</a>
+<a href="https://wa.me/201021855103" target="_blank">واتساب</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap row">
+<div class="footer-brand" dir="ltr">EL-KASHIF</div>
+<p class="footer-copy">© 2026  (EL-KASHIF). جميع الحقوق محفوظة.</p>
+</div>
+</footer>
+
+<script>
+(function () {
+  var header = document.getElementById('site-header');
+  var btn = document.getElementById('menu-btn');
+  btn.addEventListener('click', function () {
+    var open = header.getAttribute('data-menu') === 'open';
+    header.setAttribute('data-menu', open ? 'closed' : 'open');
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  });
+  header.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      header.setAttribute('data-menu', 'closed');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Active link on scroll
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  function setActive() {
+    var pos = window.scrollY + 140, cur = null;
+    secs.forEach(function (s) { if (pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight) cur = '#' + s.id; });
+    links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === cur); });
+  }
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1) Hero: orchestrated masked-line timeline, then badge/sub/lede/note stagger
+  var tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  tl.from('.hero-title .line-inner', { yPercent: 115, duration: 1.1, stagger: 0.14 })
+    .from('[data-hero="badge"]', { opacity: 0, x: -24, duration: 0.7 }, '-=0.7')
+    .from('[data-hero="sub"]', { opacity: 0, y: 26, duration: 0.8 }, '-=0.6')
+    .from('[data-hero="lede"]', { opacity: 0, y: 30, duration: 0.9 }, '-=0.55')
+    .from('[data-hero="note"]', { opacity: 0, y: 34, duration: 0.9 }, '-=0.6')
+    .from('.site-header', { yPercent: -100, opacity: 0, duration: 0.8 }, 0);
+
+  // 2+3) Chapter heads: entrance + parallax drift on the number
+  gsap.utils.toArray('[data-chapter]').forEach(function (el) {
+    gsap.from(el, {
+      opacity: 0, y: 36, duration: 0.9, ease: 'expo.out',
+      scrollTrigger: { trigger: el, start: 'top 88%' }
+    });
+    var num = el.querySelector('.chapter-num');
+    if (num) gsap.to(num, {
+      yPercent: -30, ease: 'none',
+      scrollTrigger: { trigger: el, start: 'top 95%', end: 'bottom 30%', scrub: true }
+    });
+  });
+
+  // 4) Work cards: clip-path wipe + inner image settle
+  gsap.utils.toArray('[data-wipe]').forEach(function (card, i) {
+    gsap.fromTo(card,
+      { clipPath: 'inset(0 0 100% 0)', opacity: 0.4 },
+      {
+        clipPath: 'inset(0 0 0% 0)', opacity: 1, duration: 1.1, ease: 'expo.out', delay: (i % 2) * 0.1,
+        scrollTrigger: { trigger: card, start: 'top 85%' }
+      });
+    var img = card.querySelector('img');
+    if (img) gsap.from(img, {
+      scale: 1.18, duration: 1.4, ease: 'expo.out',
+      scrollTrigger: { trigger: card, start: 'top 85%' }
+    });
+  });
+
+  // Real-estate: text slides from reading edge, shots stagger up
+  gsap.utils.toArray('#real-estate [data-rise]').forEach(function (el) {
+    gsap.from(el, {
+      opacity: 0, x: 48, duration: 1, ease: 'expo.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' }
+    });
+  });
+  gsap.from('#real-estate [data-shots] img', {
+    opacity: 0, y: 60, duration: 1, stagger: 0.15, ease: 'expo.out',
+    scrollTrigger: { trigger: '#real-estate [data-shots]', start: 'top 82%' }
+  });
+
+  // Tech: scale-from-inset cards
+  gsap.from('[data-scale]', {
+    opacity: 0, y: 44, scale: 0.96, transformOrigin: 'center',
+    duration: 0.9, stagger: 0.16, ease: 'expo.out',
+    scrollTrigger: { trigger: '#tech .tech-grid', start: 'top 82%' }
+  });
+
+  // SEO: staggered rise with border draw feel
+  gsap.from('[data-seo]', {
+    opacity: 0, y: 34, duration: 0.8, stagger: 0.12, ease: 'expo.out',
+    scrollTrigger: { trigger: '#seo .seo-grid', start: 'top 85%' }
+  });
+
+  // About: photo parallax + card rise
+  gsap.utils.toArray('#about [data-rise]').forEach(function (el) {
+    gsap.from(el, {
+      opacity: 0, y: 48, duration: 1, ease: 'expo.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' }
+    });
+  });
+  var photo = document.querySelector('#about [data-photo] img');
+  if (photo) gsap.to(photo, {
+    yPercent: 8, ease: 'none',
+    scrollTrigger: { trigger: '#about', start: 'top 80%', end: 'bottom 40%', scrub: true }
+  });
+
+  // Contact: band rises, headline + links stagger
+  gsap.from('[data-contact]', {
+    opacity: 0, y: 60, scale: 0.98, duration: 1, ease: 'expo.out',
+    scrollTrigger: { trigger: '[data-contact]', start: 'top 85%' }
+  });
+  gsap.from('[data-contact] .contact-links a', {
+    opacity: 0, y: 20, duration: 0.6, stagger: 0.1, ease: 'expo.out',
+    scrollTrigger: { trigger: '[data-contact]', start: 'top 70%' }
+  });
+
+  // Books: gentle stagger distinct from SEO treatment
+  gsap.from('[data-book]', {
+    opacity: 0, y: 40, duration: 0.85, stagger: 0.14, ease: 'expo.out',
+    scrollTrigger: { trigger: '.book-grid', start: 'top 85%' }
+  });
+
+  // Scripts: staggered card entrance
+  gsap.from('.script-card', {
+    opacity: 0, y: 34, duration: 0.8, stagger: 0.08, ease: 'expo.out',
+    scrollTrigger: { trigger: '.scripts-grid', start: 'top 85%' }
+  });
+})();
+
+// v4: Copywriter Scripts modal (accessible, GSAP fade + scale)
+(function () {
+  var overlay = document.getElementById('script-overlay');
+  var modal = overlay ? overlay.querySelector('.script-modal') : null;
+  var titleEl = document.getElementById('script-modal-title');
+  var coEl = document.getElementById('script-modal-co');
+  var bodyEl = document.getElementById('script-modal-body');
+  var closeBtn = document.getElementById('script-modal-close');
+  if (!overlay || !modal) return;
+  var lastFocus = null;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function metaFor(id) {
+    var card = document.querySelector('.script-card[data-script="' + id + '"]');
+    if (!card) return { title: '', co: '' };
+    return {
+      title: (card.querySelector('h4') || {}).textContent || '',
+      co: (card.querySelector('.script-co') || {}).textContent || ''
+    };
+  }
+  function animateOpen() {
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (window.gsap && !reduce) {
+      gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.28, ease: 'power2.out' });
+      gsap.fromTo(modal, { opacity: 0, scale: 0.94, y: 18 }, { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: 'expo.out' });
+    }
+  }
+  function animateClose(done) {
+    document.body.style.overflow = '';
+    if (window.gsap && !reduce) {
+      gsap.to(modal, { opacity: 0, scale: 0.95, y: 12, duration: 0.25, ease: 'power2.in' });
+      gsap.to(overlay, { opacity: 0, duration: 0.25, ease: 'power2.in', onComplete: function () {
+        overlay.hidden = true;
+        gsap.set([overlay, modal], { clearProps: 'all' });
+        if (done) done();
+      }});
+    } else {
+      overlay.hidden = true;
+      if (done) done();
+    }
+  }
+  function openScript(id, trigger) {
+    var tpl = document.getElementById('script-text-' + id);
+    if (!tpl) return;
+    lastFocus = trigger || document.activeElement;
+    var meta = metaFor(id);
+    titleEl.textContent = meta.title;
+    coEl.textContent = meta.co;
+    bodyEl.innerHTML = '';
+    bodyEl.appendChild(tpl.content.cloneNode(true));
+    bodyEl.scrollTop = 0;
+    animateOpen();
+    closeBtn.focus();
+  }
+  function closeScript() {
+    animateClose(function () {
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    });
+  }
+  document.querySelectorAll('.script-card').forEach(function (card) {
+    card.addEventListener('click', function () { openScript(card.getAttribute('data-script'), card); });
+  });
+  closeBtn.addEventListener('click', closeScript);
+  overlay.addEventListener('mousedown', function (e) { if (e.target === overlay) closeScript(); });
+  document.addEventListener('keydown', function (e) {
+    if (overlay.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeScript(); return; }
+    if (e.key === 'Tab') {
+      var f = modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+      f = Array.prototype.filter.call(f, function (el) { return !el.disabled; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>
